@@ -32,7 +32,7 @@ function runGame() {
 
 function checkGuess(correctColor) {
   let userInput = prompt(
-    "Enter a color from the list:" +
+    "Enter a color from the list: " +
       COLORS_ARRAY.join(", ").trim().toLowerCase()
   );
   attempts++; // increment the number of attempts
@@ -65,18 +65,17 @@ function checkGuess(correctColor) {
      *
      * If none of the conditions are met, the index of userInput is less than the index of correctColor and is alphabetically lower than correctColor
      */
+    const userInputIndex = COLORS_ARRAY.indexOf(userInput);
+    const correctColorIndex = COLORS_ARRAY.indexOf(correctColor);
 
-    if (COLORS_ARRAY.indexOf(userInput) === -1) {
+    if (userInputIndex === -1) {
       alert("Please enter a valid color from the list.");
-    } else if (
-      COLORS_ARRAY.sort().indexOf(userInput) >
-      COLORS_ARRAY.sort().indexOf(correctColor)
-    ) {
+    } else if (userInputIndex > correctColorIndex) {
       alert("Hint: Your guess is alphabetically higher... Very close");
     } else {
       alert("Hint: Your guess is alphabetically lower than the correct color");
     }
-    checkGuess(); // prompt the user to guess again
+    checkGuess(correctColor); // prompt the user to guess again
   }
 }
 
