@@ -70,7 +70,7 @@ function checkGuess(correctColor) {
       alert("Please enter a valid color from the list.");
     } else if (
       COLORS_ARRAY.sort().indexOf(userInput) >
-      COLORS_ARRAY.sort().indexOf(correctColor.toLowerCase())
+      COLORS_ARRAY.sort().indexOf(correctColor)
     ) {
       alert("Hint: Your guess is alphabetically higher... Very close");
     } else {
